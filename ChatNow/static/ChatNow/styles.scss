@@ -1,0 +1,12 @@
+
+@import "../node_modules/bootstrap/scss/variables"; // Variables de bootstrap
+@import "../node_modules/bootstrap/scss/variables-dark"; // Necesarias para añadir un color nuevo, etc
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss"; // Hay que compilar la hoja de scss a css normal
+

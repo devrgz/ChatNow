@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils import timezone
-from .utils import get_default_image, get_user_image
+#from .utils import get_default_image, get_user_image
 
 
 # Clase que no contiene campos, si no, metodos de clase
@@ -39,17 +39,14 @@ class User(AbstractUser):
     first_name = None
     last_name = None
     username = models.CharField(primary_key=True, db_index=True, unique=True, max_length=25)
-    avatar = models.ImageField(upload_to=get_user_image, default=get_default_image, null=True, blank=True) # Default, atributo que sirve para cada instancia a la cual no se le proporciona ningun valor
+    avatar = models.ImageField(upload_to="avatar/", default="avatar/perfil_image_default.jpg", null=True, blank=True) # Default, atributo que sirve para cada instancia a la cual no se le proporciona ningun valor
     hide_email = models.BooleanField(default=True)
-    REQUIRED_FIELDS = ['username', 'email', 'password'] # Dentro van los campos requeridos para el registro de un nuevo usuario
+    REQUIRED_FIELDS = ['email', 'password'] # Dentro van los campos requeridos para el registro de un nuevo usuario
     USERNAME_FIELD = 'username' # Identifica al usuario durante la autenticacion
-
-    
-    def has_perm(self):
-        return self.is_admin
 
     def __str__(self):
         return self.username
+    
 
     class Meta:
         db_table = 'Usuario'

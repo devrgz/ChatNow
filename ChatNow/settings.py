@@ -35,7 +35,7 @@ ROOT_URLCONF = 'ChatNow.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['ChatNow/templates/ChatNow', 'Usuarios/templates/Usuarios',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,11 +95,17 @@ STATIC_URL = '/static/'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'ChatNow/static'),
+    os.path.join(BASE_DIR, 'Usuarios/static'),
+]
+
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/avatar/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/avatar')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

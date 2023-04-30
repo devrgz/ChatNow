@@ -1,0 +1,5 @@
+Principal: Atkinson Hyperlegible Bold
+Secundaria: Atkinson Hyperlegible Regular
+
+Color de Relleno: #D03737
+Espaciado entre letras: 0.10
