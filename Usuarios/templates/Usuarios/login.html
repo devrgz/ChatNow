@@ -1,25 +1,44 @@
-{% extends "base.html" %}
-
+{% extends "Usuarios/base.html" %}
+{% block title %}Iniciar sesion {% endblock %}
 {% block body %}
-<main class="form-signin w-100 m-auto">
-    <form>
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <form action="" class="box">
+            
+            <div class="field">
+              <figure class="image is-128x128 mgl-large">
+                <img src="../../static/Usuarios/logo.png">
+              </figure>
+              <label for="" class="label is-size-6">Nombre de usuario</label>
+              <div class="control">
+                <input placeholder="ej: nickx1070" class="input" required>
+              </div>
+            </div>
+            <div class="field pt-3">
+              <label for="" class="label is-size-6">Contraseña</label>
+              <div class="control">
+                <input type="password" placeholder="*******" class="input" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="" class="checkbox">
+                <input type="checkbox">
+                Recordarme
+              </label>
+            </div>
+            <div class="field">
+              <button class="button is-primary is-fullwidth">
+                Iniciar sesión
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-  
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
-    </form>
-  </main>
+    </div>
+  </div>
+</section>
 {% endblock %}

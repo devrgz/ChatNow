@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User, Chat
 from django.views.generic import CreateView, TemplateView
 
@@ -10,6 +10,15 @@ def index(request):
 
 class Login(TemplateView):
     template_name = 'login.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        """
+        if not request.user.is_authenticated():
+            return redirect('login')
+        """
+        if request.user is None:
+            return redirect('login')
+        return super(Login, self).dispatch(request, *args, **kwargs)
 
 
 

@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/devrgz/ChatNow#readme",
   "dependencies": {
-    "bootstrap": "^5.3.0-alpha3"
+    "bootstrap": "^5.3.0-alpha3",
+    "bulma": "^0.9.4",
+    "install": "^0.13.0",
+    "node-sass": "^8.0.0"
   }
 }

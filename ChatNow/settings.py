@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Usuarios.apps.UsuariosApp',
+    'compressor', # Procesador sass
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Variables para configurar Sass
 
 
 LANGUAGE_CODE = 'es-ar'
@@ -91,7 +93,20 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'Usuarios.User'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+]
+
+COMPRESS_PRECOMPILERS = (    
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
 STATIC_URL = '/static/'
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -103,11 +118,13 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+SASS_PROCESSOR_ROOT = STATIC_ROOT
+
 MEDIA_URL = '/avatar/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/avatar')
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 
